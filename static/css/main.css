@@ -1,0 +1,88 @@
+/* _______________ HERO PAGE _______________ */
+
+/* __________ COMMON __________ */
+.navigation {
+    margin: auto;
+    max-width: 1140px;
+}
+.footer-copyright {
+    padding-top: 20px;
+}
+.headline {
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.description {
+    padding-bottom: 12px;
+}
+.search-button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 500px;
+}
+.separator {
+    padding-top: 18px;
+}
+.answer {
+    padding-top: 18px;
+}
+/* __________ NAVIGATION __________ */
+.nav-auth {
+
+}
+/* __________ FOOTER __________ */
+.footer-copyright__text {
+    text-align: center;
+}
+/* __________ MAIN PAGE __________ */
+/* __________ HEADER __________ */
+.greeting {
+    padding-top: 25px;
+    padding-bottom: 12px;
+}
+/* __________ ADVANTAGES __________ */
+.advantages-content {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+.card-title {
+    text-align: center;
+}
+/* __________ STEPS __________ */
+.steps-content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.steps-content__text {
+    padding-top: 5px;
+}
+/* __________ QUOTES __________ */
+.quotes-content {
+    padding-top: 12px;
+}
+.blockquote-footer {
+    padding-top: 5px;
+}
+/* __________ TASKS PAGE __________ */
+.tasks-content {
+    padding-top: 18px;
+    padding-bottom: 12px;
+}
+.tasks-more {
+    padding-top: 18px;
+    padding-bottom: 12px;
+}
+/* __________ SONGS PAGE __________ */
+/* __________ LOGINSYS __________ */
+.login-component {
+    margin: auto;
+    max-width: 500px;
+}
+.auth-message {
+    margin: auto;
+    max-width: 500px;
+}
