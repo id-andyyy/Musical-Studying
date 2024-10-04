@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Header -->
+<header class="header" id="header">
+    <div class="container">
+        <div class="headline">
+            <h3>Песни</h3>
+        </div>
+        <div class="description">
+            <p>Здесь собраны упражнения для более чем 500 песен разных жанров. Воспользуйтесь фильтром или поиском, чтобы найти нужную.</p>
+        </div>
+    </div>
+</header>
+<!-- Search -->
+<section class="search" id="search">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="search-component">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Название" id="title">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="search-component">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Исполнитель" id="artist">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="search-component">
+                    <div class="form-group">
+                        <select class="custom-select">
+                            <option value="0" selected="">Все жанры</option>
+                            {% for item_genre in genres %}
+                                <option value="{{ forloop.counter }}">{{ item_genre.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="search-component">
+                    <div class="form-group">
+                        <select class="custom-select">
+                            <option value="0" selected="">Любая сложность</option>
+                            {% for item_mode in modes %}
+                                <option value="{{ forloop.counter }}">{{ item_mode.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="search-component">
+                    <div class="form-group">
+                        <select class="custom-select">
+                            <option value="0" selected="">Без ограничений</option>
+                            <option value="1">18+</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="search-button">
+                    <button type="button" class="btn btn-primary btn-block">Найти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Search results -->
+<section class="results" id="results">
+    <div class="container">
+        <div class="headline">
+            <h4>Результаты поиска</h4>
+        </div>
+        <!-- Table for md and lg -->
+        <div class="table d-none d-md-block">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">№</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Исполнитель</th>
+                        <th scope="col">Жанр</th>
+                        <th scope="col">Сложность</th>
+                        <th scope="col">Ограничения</th>
+                        <th scope="col">Ссылка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% include "songs/inc/_song_table.html" %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table for sm -->
+        <div class="table d-md-none d-lg-none">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Название</th>
+                        <th scope="col">Исполнитель</th>
+                        <th scope="col">Жанр</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% include "songs/inc/_song_table_mini.html" %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
