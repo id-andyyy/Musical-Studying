@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="error">
+        <div class="headline">
+            <h3>Ой, вы не авторизировались</h3>
+        </div>
+        <div class="description">
+            <p>Мы не сможем подбирать для вас композиции и сохранять ваш прогресс. Зарегистрируйтесь или войдите и мы начнём обучение! Кстати, это бесплатно</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <div class="search-button">
+                    <a class="btn btn-primary btn-block" href="{% url 'register' %}">Зарегистрироваться</a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6">
+                <div class="search-button">
+                    <a class="btn btn-danger btn-block" href="{% url 'login' %}">Войти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
