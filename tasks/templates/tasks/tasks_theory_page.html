@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Header -->
+<header class="header" id="header">
+    <div class="container">
+        {% include "tasks/inc/_characteristics.html" %}
+        <div class="headline">
+            <h3>Шаг 1 - Прослушивание</h3>
+        </div>
+        <div class="separator">
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 33%;" aria-valuenow="25"
+                     aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Theory -->
+<section class="theory" id="theory">
+    <div class="container">
+        <div class="task">
+            <div class="headline">
+                <h4>Прослушивание</h4>
+            </div>
+            <div class="description">
+                <p>Прослушайте песню. Не пытайтесь понять всё сразу. Внимательно вслушивайтесь в текст песни. Выпишите и
+                    переведите все незнакомые слова. Вы можете прослушивать композицию неограниченное количество раз в
+                    течение всего упражнения.</p>
+            </div>
+        </div>
+        <div class="materials">
+            {% include "tasks/inc/_audio.html" %}
+        </div>
+        <div class="task">
+            <div class="headline">
+                <h4>Текст</h4>
+            </div>
+            <div class="description">
+                <p>Прослушайте композицию ещё раз, читая приведённый ниже текст песни. Сопоставляйте исполнение песни с
+                    текстом, стараясь отчетливо разбирать каждое слово и выражение. Если это необходимо – делайте паузы
+                    и возвращайтесь к тяжело воспринимаемым фрагментам.{% if level %}<br>Если какое-то слово вам
+                    непонятно, обратите внимание на вкладку "Перевод". Но будьте осторожны: перевод выполнен
+                    автоматически! Для получения более точного перевода какого-то слова, воспользуйтесь словарём.
+                    {% else %}<br>Если какое-то слово вам непонятно, попробуйте понять его значение по контексту. В
+                    крайнем случае воспользуйтесь словарём или онлайн переводчиком.{% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="materials">
+            <div class="lyrics">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6">
+                        <div class="description">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#">Текст</a>
+                                </li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div class="tab-pane fade active show" id="lyrics">
+                                    <pre>{{ song.lyrics }}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if level %}
+                    <div class="col-md-12 col-lg-6">
+                        <div class="description">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#">Перевод</a>
+                                </li>
+                            </ul>
+                            <div id="myTabContent1" class="tab-content">
+                                <div class="tab-pane fade active show" id="translation">
+                                    <pre>{{ translation }}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="search-button">
+            <a class="btn btn-primary btn-block" href="{% url 'task_exercises' id_=song.id %}">Приступить к упражнениям</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

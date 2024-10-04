@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Header -->
+<header class="header" id="header">
+    <div class="container">
+        <div class="headline">
+            <h3>Ежедневные задания</h3>
+        </div>
+        <div class="separator">
+            <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Tasks -->
+<section class="tasks" id="tasks">
+    <div class="container">
+        <div class="row">
+            {% for song in songs %}
+            <div class="col-md-6 col-lg-4">
+                <div class="tasks-content">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ song.title }}</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ song.artist }}</h6>
+                            <p class="card-text">Жанр: {{ song.genre }}<br>Сложность: {{ song.difficulty }}/150<br>Ограничения:
+                                {% if song.limit == False %}нет{% else %}18+{% endif %}</p>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4">
+                                    <a href="{% url 'task_theory' id_=song.id %}" class="card-link">Старт</a>
+                                </div>
+<!--                                <div class="col-sm-12 col-md-8">-->
+<!--                                    <a href="#" class="card-link">Не рекомендовать</a>-->
+<!--                                </div>-->
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

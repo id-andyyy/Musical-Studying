@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Header -->
+<header class="header" id="header">
+    <div class="container">
+        {% include "tasks/inc/_characteristics.html" %}
+        <div class="headline">
+            <h3>Шаг 2 - Упражнения</h3>
+        </div>
+        <div class="separator">
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="25"
+                     aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Theory -->
+<section class="theory" id="theory">
+    <div class="container">
+        <div class="task">
+            <div class="headline">
+                <h4>Аудио</h4>
+            </div>
+            <div class="description">
+                <p>Теперь вы можете приступить к выполнению упражнений. В течение всего выполнения вы можете
+                    переслушивать композицию и пользоваться вашими записями.</p>
+            </div>
+        </div>
+        <div class="materials">
+            {% include "tasks/inc/_audio.html" %}
+        </div>
+        {% if level %}
+        <div class="task">
+            <div class="headline">
+                <h4>Текст</h4>
+            </div>
+            <div class="description">
+                <p>Если возникнет необходимость, воспользуйтесь текстом песни. Но старайтесь понимать слова именно
+                    на слух, прибегая к тексту в крайних случаях.
+                </p>
+            </div>
+        </div>
+        {% endif %}
+        <div class="materials">
+            <div class="lyrics">
+                <div class="description">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#">Текст</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active show" id="lyrics">
+                            <pre>{{ song.lyrics }}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Exercises -->
+<section class="exercises" id="exercises">
+    <div class="container">
+        <form action="{% url 'task_check' id_=song.id %}" method="post">
+            <div class="task">
+                <div class="headline">
+                    <h4>Упражнение 1</h4>
+                </div>
+                <div class="description">
+                    <p>Заполните пропуски из текста ниже словами из песни. При необходимости, воспользуйтесь
+                        проигрывателем в шаге 1 ещё раз.</p>
+                </div>
+                <div class="description">
+                    {% for key, value in task_1_d.items %}
+                    {{ key }}<br>
+                    {% endfor %}
+                </div>
+                {% csrf_token %}
+
+                {% for field in form %}
+                <div class="form-group">
+                    {{ field }}
+                </div>
+                {% endfor %}
+            </div>
+            <div class="task">
+                <div class="headline">
+                    <h4>Упражнение 2</h4>
+                </div>
+                <div class="description">
+                    <p>Выполните перевод слов, представленных ниже.</p>
+                </div>
+                {% for key, value in task_2_d.items %}
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-sm-4">
+                        <div class="en-word">
+                            <strong>{{ key }}</strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8">
+                        <div class="ru-word">
+                            <div class="form-group">
+                                <select class="custom-select" name="{{ key }}">
+                                    <option selected="">Выберите перевод</option>
+                                    {% for key, value in value.items %}
+                                    <option value="1">{{ value.0 }}</option>
+                                    <option value="2">{{ value.1 }}</option>
+                                    <option value="3">{{ value.2 }}</option>
+                                    <option value="4">{{ key }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="search-button">
+                <button type="submit" class="btn btn-primary btn-block">Проверить</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,10 @@
+<div class="headline">
+    <h3>Задание для песни {{ song.title }}</h3>
+</div>
+<div class="characteristics">
+    <div class="card border-dark mb-3" style="max-width: 20rem;">
+        <div class="card-body">
+            <p class="card-text">Жанр: {{ song.genre }}<br>Сложность: {{ song.difficulty }}/150<br>Ограничения: {% if song.limit == False %}нет{% else %}18+{% endif %}</p>
+        </div>
+    </div>
+</div>
