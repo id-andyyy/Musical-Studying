@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Header -->
+<header class="header" id="header">
+    <div class="container">
+        <div class="greeting">
+            <div class="jumbotron">
+                <h1 class="display-3 d-none d-sm-block">Изучайте английский с песней!</h1>
+                <p class="lead">Надоело зубрить слова и правила? Совместите полезное с приятным! Попробуйте изучать язык слушая иностранные песни!</p>
+                <hr class="my-4">
+                <p>Зарегистрируйтесь и изучайте язык вместе с вашими любимыми песнями.</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Зарегистрироваться</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Advantages -->
+<section class="advantages" id="advantages">
+    <div class="container">
+        <div class="separator">
+            <div class="progress">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <div class="headline">
+            <h3>Приемущества</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <div class="advantages-content">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Индивидуальный подход для каждого</h4>
+                            <p class="card-text">Уроки подбираются в соответствии с вашими знаниями и предпочтениями. Только те песни, которые нравятся лично вам.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="advantages-content">
+                    <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Интересный процесс обучения</h4>
+                            <p class="card-text">Мы поможем сохранить интерес к обучению. Теперь вы сами захотите изучать язык.<p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="advantages-content">
+                    <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Моментальная оценка</h4>
+                            <p class="card-text">Вы сразу увидите, какие задания выполнили правильно. Если вы не справитесь, мы быстро покажем вам, как улучшить результаты.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="advantages-content">
+                    <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Улучшение навыков аудирования</h4>
+                            <p class="card-text">Задания, основанные на вдумчивом прослушивании, помогают улучшать навыки аудирования. Почувствуйте уверенность во время разговора!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Steps -->
+<section class="steps" id="steps">
+    <div class="container">
+        <div class="steps-title">
+            <div class="separator">
+                <div class="progress">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            </div>
+            <div class="headline">
+                <h3>Пять пунктов изучения языка по песням</h3>
+            </div>
+        </div>
+        <div class="steps-content">
+            <h4 class="steps-content__title">1. Регистрация</h4>
+            <p class="steps-content__text">При регистрации вы указываете свои <strong>предпочтения</strong>. Это могут быть любимые жанры, темы и исполнители. Ещё вам нужно будет указать свой <strong>уровень английского</strong>. Также вы настраиваете <strong>ежедневную цель</strong>: легкая, обычная, серьёзная или интенсивная.</p>
+        </div>
+        <div class="steps-content">
+            <h4 class="steps-content__title">2. Ежедневные тренировки</h4>
+            <p class="steps-content__text">Каждый день вы получаете некоторое количество песен, основанных на ваших <strong>предпочтениях</strong>. Чем выше уровень английского и указанная цель, тем <strong>больше</strong> песен соответствующего уровня вы будете получать.</p>
+        </div>
+        <div class="steps-content">
+            <h4 class="steps-content__title">3. Задания</h4>
+            <p class="steps-content__text">В каждое задание входит выбранная песня, её текст на английском, и, если необходимо, перевод на русский язык. Прослушав песню и разобрав все незнакомые слова, вы переходите к <strong>упражнениям</strong>. После их выполнения вы получаете <strong>оценку</strong> вашей работу. Её всегда можно <strong>улучшить</strong>.</p>
+        </div>
+        <div class="steps-content">
+            <h4 class="steps-content__title">4. Закрепление</h4>
+            <p class="steps-content__text">Через некоторое дней после выполнения ежедневных заданий, вы сможете пройти <strong>упрощённую версию</strong> упражнений для закрепления навыка. Песни, освоенные вами без ошибок больше <strong>не попадаются</strong>.</p>
+        </div>
+        <div class="steps-content">
+            <h4 class="steps-content__title">5. Опыт</h4>
+            <p class="steps-content__text">Выполняя новые задания и закрепляя старые, вы получаете виртуальную валюту - <strong>опыт</strong>. Чем больше у вас опыта, тем лучше вы знаете язык.</p>
+        </div>
+    </div>
+</section>
+<!-- Quotes -->
+<section class="quotes" id="quotes">
+    <div class="container">
+        <div class="separator">
+            <div class="progress">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <div class="headline">
+            <h3>Цитаты великих людей</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-4">
+                <div class="quotes-content">
+                    <blockquote class="blockquote">
+                        <p class="mb-0"><em>Другой язык – это другое видение жизни.</em></p>
+                        <footer class="blockquote-footer">Федерико Феллини</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <div class="quotes-content">
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-0"><em>Если вы знаете языки, вы везде будете как дома.</em></p>
+                        <footer class="blockquote-footer">Эдмунд дэ Вааль</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <div class="quotes-content">
+                    <blockquote class="blockquote text-right">
+                        <p class="mb-0"><em>Границы моего языка - это границы моего мира.</em></p>
+                        <footer class="blockquote-footer">Людвиг Витгенштейн</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
