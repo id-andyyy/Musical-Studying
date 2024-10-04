@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Header -->
+<header class="header" id="header">
+    <div class="container">
+        <div class="headline">
+            <h3>Регистрация</h3>
+        </div>
+    </div>
+</header>
+<!-- Login -->
+<section class="login" id="login">
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="container">
+            {% include "loginsys/inc/_messages.html" %}
+            {% for field in form_1 %}
+                {% include "loginsys/inc/_form.html" %}
+            {% endfor %}
+            {% for field in form_2 %}
+                {% if forloop.counter == 5 %}
+                    <div class="login-component">
+                        <div class="headline">
+                            <h5>Любимые жанры</h5>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            {{ field }}
+                        </div>
+                        {% if field.errors %}
+                            <div class="invalid-feedback">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    {% include "loginsys/inc/_form.html" %}
+                {% endif %}
+            {% endfor %}
+            <div class="search-button">
+                <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+            </div>
+        </div>
+    </form>
+</section>
+{% endblock %}
